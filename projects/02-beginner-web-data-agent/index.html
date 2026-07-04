@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WebGround-Agent — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --warn:#D83B01; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#107C10;background:#DFF6DD;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+
+  .browser{margin:0 24px 24px;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);background:#fff;}
+  .browser-chrome{background:#e9e9e9;padding:8px 12px;display:flex;gap:6px;align-items:center;}
+  .browser-dot{width:9px;height:9px;border-radius:50%;background:#ccc;}
+  .browser-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:11px;color:var(--text-secondary);margin-left:8px;}
+
+  .site-body{position:relative;min-height:480px;background:linear-gradient(135deg,#0B1B3A,#0F3A6B);color:#fff;padding:40px;}
+  .site-body h1{font-size:24px;margin:0 0 8px;max-width:480px;}
+  .site-body p{font-size:13px;color:#c9d7ee;max-width:420px;}
+  .site-btn{display:inline-block;margin-top:14px;background:#fff;color:#0B1B3A;padding:8px 16px;border-radius:5px;font-weight:700;font-size:12px;}
+
+  .widget{position:absolute;bottom:24px;right:24px;width:290px;background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.3);overflow:hidden;color:var(--text);}
+  .widget-head{background:var(--g1);color:#fff;padding:10px 14px;font-size:12.5px;font-weight:700;display:flex;justify-content:space-between;align-items:center;}
+  .widget-body{padding:12px;font-size:12px;max-height:220px;overflow-y:auto;background:#fafafa;}
+  .wmsg{padding:8px 10px;border-radius:8px;margin-bottom:8px;line-height:1.5;font-size:11.5px;}
+  .wmsg.bot{background:#fff;border:1px solid var(--border);}
+  .wmsg.user{background:var(--g1);color:#fff;margin-left:auto;max-width:80%;}
+  .wcite{font-size:9.5px;color:var(--text-secondary);margin-top:4px;}
+  .guardrail{background:#FFF4CE;border:1px solid #ecd98a;color:#5c4a00;padding:6px 8px;border-radius:6px;font-size:10.5px;}
+  .widget-input{border-top:1px solid var(--border);padding:8px 10px;font-size:11px;color:var(--text-secondary);}
+  .anon-tag{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:10.5px;padding:3px 10px;border-radius:10px;}
+
+  .metrics{display:flex;gap:16px;margin:0 24px 24px;flex-wrap:wrap;}
+  .metric-card{flex:1;min-width:160px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;}
+  .metric-card .num{font-size:20px;font-weight:800;color:var(--g1);}
+  .metric-card .num.cost{color:var(--warn);}
+  .metric-card .lbl{font-size:11px;color:var(--text-secondary);margin-top:2px;}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 2</span><span class="tier">🟢 BEGINNER</span></div>
+  <div class="desc">WebGround-Agent — public, anonymous website widget grounded on live site content. Static reference showing the licensing boundary that turns usage from free to metered.</div>
+
+  <div class="browser">
+    <div class="browser-chrome"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-url">🔒 www.example-products.com</div></div>
+    <div class="site-body">
+      <span class="anon-tag">👤 Anonymous visitor — not signed in</span>
+      <h1>Built for teams that move fast.</h1>
+      <p>Explore our product line, pricing, and specs — or just ask the assistant in the corner.</p>
+      <div class="site-btn">View Pricing</div>
+
+      <div class="widget">
+        <div class="widget-head"><span>Product Info Assistant</span><span>✕</span></div>
+        <div class="widget-body">
+          <div class="wmsg user">What's included in the Pro plan?</div>
+          <div class="wmsg bot">
+            The Pro plan includes unlimited projects, priority support, and advanced analytics — starting at $49/user/month billed annually.
+            <div class="wcite">Source: example-products.com/pricing</div>
+          </div>
+          <div class="wmsg user">How does this compare to [competitor]?</div>
+          <div class="wmsg bot">
+            <div class="guardrail">I can only speak to our own product details — I'm not able to compare us to other vendors. Happy to tell you more about what we offer!</div>
+          </div>
+        </div>
+        <div class="widget-input">Ask a question…</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric-card"><div class="num">1</div><div class="lbl">Knowledge sources: Website + FAQ</div></div>
+    <div class="metric-card"><div class="num">~2</div><div class="lbl">Copilot Credits per answer</div></div>
+    <div class="metric-card"><div class="num cost">Metered</div><div class="lbl">Licensing: standalone, PAYG or capacity pack</div></div>
+    <div class="metric-card"><div class="num">~$200</div><div class="lbl">Est. cost at 10K questions/month</div></div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> the same ~2-credit-per-answer rate as Project 1's "free" internal usage — but because the visitor is anonymous and the channel is public, every single answer here is metered against a standalone Copilot Studio license. The off-topic guardrail also demonstrates the boundary-setting an anonymous public agent needs that an internal one usually doesn't.
+  </div>
+
+</body>
+</html>
