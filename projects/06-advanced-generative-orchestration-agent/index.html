@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OrchestrAI-Agent — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --orange:#CA5010; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#8a3800;background:#FDE0CB;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+  .stage{display:flex;gap:24px;margin:0 24px 24px;flex-wrap:wrap;}
+
+  .loop-panel{flex:1.1;min-width:320px;background:#0B1B3A;border-radius:8px;padding:18px;color:#c9e0ff;box-shadow:0 4px 14px rgba(0,0,0,.15);}
+  .loop-panel h4{margin:0 0 12px;font-size:12.5px;color:#fff;}
+  .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:11px;}
+  .step .tag{font-size:9.5px;font-weight:800;text-transform:uppercase;color:#7fd0ff;display:block;margin-bottom:3px;}
+  .step .cost{float:right;color:#ffd166;font-weight:700;}
+
+  .sidepanel{flex:1;min-width:280px;display:flex;flex-direction:column;gap:16px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .card h4{margin:0 0 8px;font-size:12.5px;}
+  .row{display:flex;justify-content:space-between;font-size:11.5px;padding:6px 0;border-bottom:1px solid #f2f1f0;}
+  .row:last-child{border-bottom:none;}
+  .skill-box{background:#F7F2FC;border:1px solid #E1D4F3;border-radius:8px;padding:10px 12px;font-size:11.5px;color:#3d2a54;line-height:1.6;}
+  .guardrail-box{background:#FDE7E9;border:1px solid #f0b0b6;color:#8a1c26;padding:8px 10px;border-radius:6px;font-size:11px;margin-top:8px;}
+
+  .total-cost{text-align:center;background:#fff;border:1px solid var(--border);border-radius:8px;margin:0 24px 24px;padding:14px;}
+  .total-cost .n{font-size:22px;font-weight:800;color:var(--orange);}
+  .total-cost .l{font-size:11.5px;color:var(--text-secondary);}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 6</span><span class="tier">🟠 ADVANCED</span></div>
+  <div class="desc">OrchestrAI-Agent — New Orchestrator's Agentic Reasoning Loop handling a multi-step deal-desk request. Static reference showing the plan → act → observe → re-plan trace and its cost.</div>
+
+  <div class="stage">
+    <div class="loop-panel">
+      <h4>🔁 Agentic Reasoning Loop — "Prepare Deal Package for Acme Corp"</h4>
+      <div class="step"><span class="tag">Plan</span>Break request into: check standing → draft summary → check shipping</div>
+      <div class="step"><span class="tag">Act</span>Tool: Customer Standing Lookup (MCP) <span class="cost">~5 cr</span></div>
+      <div class="step"><span class="tag">Observe</span>Result: Account in good standing, tier: Enterprise</div>
+      <div class="step"><span class="tag">Act</span>Tool: Discount Approval Drafting (Prompt Builder) <span class="cost">~14 cr</span></div>
+      <div class="step"><span class="tag">Observe</span>Draft generated — requested discount: 25%</div>
+      <div class="step"><span class="tag">Re-plan</span>25% exceeds Skill guardrail (max 15% autonomous) — halt & escalate</div>
+      <div class="step"><span class="tag">Act</span>Tool: Shipping Options by Region (Custom Connector) <span class="cost">~5 cr</span></div>
+      <div class="step"><span class="tag">Synthesize</span>Combine results into one coherent reply <span class="cost">~6 cr</span></div>
+    </div>
+
+    <div class="sidepanel">
+      <div class="card">
+        <h4>Skill: "Prepare Deal Package"</h4>
+        <div class="skill-box">
+          Trigger: "prepare a deal / proposal for [customer]"<br>
+          Tools: Standing Lookup → Discount Drafting → Shipping Lookup<br>
+          <b>Guardrail:</b> never auto-approve a discount above 15% — always escalate to human sign-off.
+        </div>
+        <div class="guardrail-box">🛑 Guardrail triggered this run — 25% discount routed to manager approval instead of auto-completing.</div>
+      </div>
+
+      <div class="card">
+        <h4>Model configuration</h4>
+        <div class="row"><span>Orchestration type</span><span>New Orchestrator</span></div>
+        <div class="row"><span>Deep reasoning</span><span>On</span></div>
+        <div class="row"><span>Drafting model</span><span>Bring Your Own Model (Foundry)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="total-cost">
+    <div class="n">~30 Copilot Credits</div>
+    <div class="l">for this single multi-step turn — vs. ~2 credits for a Project 1-style simple grounded answer</div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> the New Orchestrator autonomously chained three tools and a premium reasoning/drafting pass to fulfill one request — and its own Skill guardrail correctly stopped it from auto-approving a discount above policy, routing to a human instead. The cost panel makes the "premium reasoning is expensive" lesson concrete rather than abstract.
+  </div>
+
+</body>
+</html>
