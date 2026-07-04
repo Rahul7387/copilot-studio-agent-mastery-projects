@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FlowConnect-Agent — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --warn:#D83B01; --pa:#0066FF; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#8a6100;background:#FFF1D6;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+  .stage{display:flex;gap:24px;margin:0 24px 24px;flex-wrap:wrap;}
+
+  .chatpanel{flex:1.2;min-width:340px;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);display:flex;flex-direction:column;height:500px;}
+  .chat-head{background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;padding:10px 16px;font-size:13px;font-weight:700;}
+  .chat-body{flex:1;overflow-y:auto;padding:14px;background:#fafafa;}
+  .msg{max-width:85%;padding:9px 12px;border-radius:10px;font-size:12.5px;margin-bottom:10px;line-height:1.5;}
+  .msg.bot{background:#fff;border:1px solid var(--border);}
+  .msg.user{background:var(--g1);color:#fff;margin-left:auto;}
+  .confirm{background:#FFF4CE;border:1px solid #ecd98a;color:#5c4a00;padding:7px 9px;border-radius:6px;font-size:11.5px;margin-top:6px;display:flex;gap:8px;}
+  .confirm-btn{background:var(--success);color:#fff;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:6px;}
+  .action-tag{font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--pa);display:block;margin-bottom:4px;}
+
+  .card-mock{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-top:8px;box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .card-mock .title{font-size:11.5px;font-weight:700;}
+  .card-mock .sub{font-size:10.5px;color:var(--text-secondary);margin:3px 0 8px;}
+  .card-actions{display:flex;gap:6px;}
+  .card-actions .b{font-size:10px;font-weight:700;padding:4px 10px;border-radius:5px;}
+  .card-actions .approve{background:var(--success);color:#fff;}
+  .card-actions .reject{background:#fff;border:1px solid var(--border);}
+  .chat-input{border-top:1px solid var(--border);padding:9px 14px;font-size:12px;color:var(--text-secondary);}
+
+  .sidepanel{flex:1;min-width:280px;display:flex;flex-direction:column;gap:16px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .card h4{margin:0 0 8px;font-size:12.5px;}
+  .action-row{display:flex;justify-content:space-between;font-size:11.5px;padding:6px 0;border-bottom:1px solid #f2f1f0;}
+  .action-row:last-child{border-bottom:none;}
+  .tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;}
+  .tag.flow{background:#E7F0FF;color:var(--pa);}
+  .tag.agentflow{background:#E9F7EC;color:var(--success);}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 3</span><span class="tier">🟡 INTERMEDIATE</span></div>
+  <div class="desc">FlowConnect-Agent — leave requests via Power Automate actions and Adaptive Card approvals. Static reference showing the confirm-before-act pattern and cost-tiered action design.</div>
+
+  <div class="stage">
+    <div class="chatpanel">
+      <div class="chat-head">Leave Request Agent</div>
+      <div class="chat-body">
+        <div class="msg user">How many leave days do I have left?</div>
+        <div class="msg bot">
+          <span class="action-tag">Agent Flow · lookup</span>
+          You have 8 casual leave days remaining this year.
+        </div>
+
+        <div class="msg user">I want to take leave from July 20 to July 22 for a family event</div>
+        <div class="msg bot">
+          <span class="action-tag">Cloud Flow Action · pending confirmation</span>
+          I'll submit a leave request: July 20–22 (3 days), reason: family event.
+          <div class="confirm">Confirm and submit to your manager? <span class="confirm-btn">Confirm</span></div>
+        </div>
+
+        <div class="msg bot">
+          <span class="action-tag">Cloud Flow Action · executed</span>
+          Submitted! Here's the approval card sent to your manager:
+          <div class="card-mock">
+            <div class="title">🗓 Leave Approval Request</div>
+            <div class="sub">Priya S. · Jul 20–22 · Family event</div>
+            <div class="card-actions"><div class="b approve">Approve</div><div class="b reject">Reject</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">Type a message…</div>
+    </div>
+
+    <div class="sidepanel">
+      <div class="card">
+        <h4>Actions on this agent</h4>
+        <div class="action-row"><span>Get My Leave Balance</span><span class="tag agentflow">Agent Flow</span></div>
+        <div class="action-row"><span>Create Leave Request</span><span class="tag flow">Cloud Flow</span></div>
+        <div class="action-row"><span>Notify Approval Outcome</span><span class="tag flow">Cloud Flow</span></div>
+      </div>
+
+      <div class="card">
+        <h4>Credit cost this session</h4>
+        <div class="action-row"><span>Balance lookup</span><span>~5 cr</span></div>
+        <div class="action-row"><span>Leave request + confirm</span><span>~7 cr</span></div>
+        <div class="action-row"><span><b>Total</b></span><span><b>~12 cr</b></span></div>
+      </div>
+
+      <div class="card">
+        <h4>Design note</h4>
+        <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6;">
+          Balance lookup deliberately uses a cheap, deterministic <b>agent flow</b> instead of a full reasoning action — high-frequency questions stay inexpensive by design.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> the agent never creates a record without an explicit confirmation step first. Routine lookups use a lightweight agent flow (cheaper, deterministic) while the actual state-changing request uses a full cloud flow action with an Adaptive Card human-approval loop — a deliberate cost and safety tiering, not an accident of what was easiest to build.
+  </div>
+
+</body>
+</html>
