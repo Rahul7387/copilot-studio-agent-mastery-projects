@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MultiAgentMesh — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --g3:#D83B9A; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --red:#A80000; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#a80000;background:#FDE7E9;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+
+  .mesh{margin:0 24px 24px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  .parent-node{background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;border-radius:8px;padding:12px 16px;text-align:center;font-weight:700;font-size:13px;max-width:320px;margin:0 auto 18px;}
+  .row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+  .agent-box{border-radius:8px;padding:10px 14px;font-size:11.5px;text-align:center;min-width:150px;border:2px solid;}
+  .agent-box.embedded{border-color:#0F6CBD;background:#EFF6FC;color:#0a4a80;}
+  .agent-box.connected{border-color:#8764B8;background:#F7F2FC;color:#4a2d70;}
+  .agent-box.external{border-color:#D83B9A;background:#FCEFF6;background-image:repeating-linear-gradient(45deg,#FCEFF6,#FCEFF6 6px,#f9e0ee 6px,#f9e0ee 12px);color:#8a1a5c;}
+  .agent-box .label{font-size:9px;text-transform:uppercase;font-weight:800;display:block;margin-bottom:3px;}
+
+  .legend{display:flex;gap:20px;justify-content:center;font-size:10.5px;color:var(--text-secondary);margin-top:8px;flex-wrap:wrap;}
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .sw{width:10px;height:10px;border-radius:3px;display:inline-block;}
+
+  .test-panel{display:flex;gap:24px;margin:0 24px 24px;flex-wrap:wrap;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);flex:1;min-width:300px;}
+  .card h4{margin:0 0 8px;font-size:12.5px;}
+  .sec-test{font-size:11.5px;line-height:1.6;}
+  .blocked{background:#DFF6DD;border:1px solid #bfe3b6;color:#1e5c1e;padding:7px 9px;border-radius:6px;font-size:11px;margin-top:6px;}
+  .row2{display:flex;justify-content:space-between;font-size:11.5px;padding:6px 0;border-bottom:1px solid #f2f1f0;}
+  .row2:last-child{border-bottom:none;}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 7</span><span class="tier">🔴 EXPERT</span></div>
+  <div class="desc">MultiAgentMesh — Sales Proposal Mesh combining embedded agents, connected agents, and A2A interoperability. Static reference only.</div>
+
+  <div class="mesh">
+    <div class="parent-node">🧭 Sales Proposal Orchestrator (Parent Agent)</div>
+    <div class="row">
+      <div class="agent-box embedded"><span class="label">Embedded / Child</span>CRM Lookup<br>(inline topic)</div>
+      <div class="agent-box connected"><span class="label">Connected Agent</span>Document Drafting<br>(own tools + Fabric Data Agent)</div>
+      <div class="agent-box connected"><span class="label">Connected Agent</span>Scheduling<br>(own Outlook/Graph tools)</div>
+      <div class="agent-box external"><span class="label">External · A2A</span>Contract Terms<br>(partner-built, non-Copilot-Studio)</div>
+    </div>
+    <div class="legend">
+      <span><span class="sw" style="background:#0F6CBD"></span>Embedded — shares parent's context, no separate billing surface</span>
+      <span><span class="sw" style="background:#8764B8"></span>Connected — own orchestration, additive cost</span>
+      <span><span class="sw" style="background:#D83B9A"></span>A2A external — outside Microsoft's billing entirely</span>
+    </div>
+  </div>
+
+  <div class="test-panel">
+    <div class="card">
+      <h4>Security boundary test</h4>
+      <div class="sec-test">
+        <b>Attempted:</b> "Cancel my 3pm call with Acme" (Parent doesn't have cancellation rights; Scheduling Agent does)<br>
+        <div class="blocked">✔ Blocked — parent correctly refuses to reach cancellation capability indirectly through the connected Scheduling Agent. Delegation does not equal privilege escalation.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Cost — additive across the mesh</h4>
+      <div class="row2"><span>Parent routing decision</span><span>~5 cr</span></div>
+      <div class="row2"><span>CRM Lookup (embedded)</span><span>included in parent's turn</span></div>
+      <div class="row2"><span>Document Drafting (connected)</span><span>~18 cr</span></div>
+      <div class="row2"><span>Scheduling (connected)</span><span>~8 cr</span></div>
+      <div class="row2"><span>Contract Terms (A2A, external)</span><span>billed outside Microsoft</span></div>
+      <div class="row2"><span><b>Total, one proposal</b></span><span><b>~65-80 cr</b></span></div>
+    </div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> the embedded CRM agent shares the parent's billing surface (cheap, no separate call charge), while each connected agent adds its own independent consumption on top of the parent's routing cost — cost is additive across the mesh. The security test proves that delegating to a more privileged connected agent doesn't quietly grant the parent that same privilege.
+  </div>
+
+</body>
+</html>
