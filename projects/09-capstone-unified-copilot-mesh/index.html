@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unified Copilot Mesh — Capstone Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --g3:#D83B9A; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --warn:#D83B01; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,#0F6CBD,#8764B8,#D83B9A);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#742774;background:#F3E9FB;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+
+  .hub{margin:0 24px 24px;background:#0B1B3A;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+  .hub-top{background:linear-gradient(120deg,#0F6CBD 0%,#5c3e8f 50%,#D83B9A 100%);color:#fff;padding:24px 30px;}
+  .hub-top .eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#e6d9f5;font-weight:700;}
+  .hub-top h1{font-size:21px;margin:6px 0;}
+  .hub-top p{font-size:12.5px;color:#eee2f7;max-width:560px;margin:0;}
+
+  .entry{display:flex;background:#11244a;padding:14px 22px;gap:14px;flex-wrap:wrap;}
+  .entry-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:8px 16px;color:#dbe4fb;font-size:11.5px;}
+  .entry-chip b{color:#fff;}
+
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:20px 22px 24px;background:#f7f8fc;}
+  .tile{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .tile .tier-badge{font-size:9px;font-weight:800;padding:2px 8px;border-radius:8px;display:inline-block;margin-bottom:6px;}
+  .tile .tier-badge.beg{background:#DFF6DD;color:#107C10;}
+  .tile .tier-badge.int{background:#FFF1D6;color:#8a6100;}
+  .tile .tier-badge.adv{background:#FDE0CB;color:#8a3800;}
+  .tile .tier-badge.exp{background:#FDE7E9;color:#a80000;}
+  .tile .name{font-size:12.5px;font-weight:700;}
+  .tile .body{font-size:11px;color:var(--text-secondary);line-height:1.5;margin-top:4px;}
+  .tile .cost{font-size:10.5px;font-weight:700;margin-top:8px;color:#0F6CBD;}
+
+  .metrics{display:flex;gap:16px;padding:0 24px 26px;flex-wrap:wrap;}
+  .metric-card{flex:1;min-width:170px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;}
+  .metric-card .num{font-size:20px;font-weight:800;color:#0B1B3A;}
+  .metric-card .lbl{font-size:11px;color:var(--text-secondary);margin-top:2px;}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">CAPSTONE — ALL 8 PROJECTS UNIFIED</span><span class="tier">⭐ CAPSTONE</span></div>
+  <div class="desc">Unified Enterprise Copilot Mesh — "Ask Company," one parent orchestrator routing to every specialist pattern from Projects 1-7, governed by Project 8. Static reference only.</div>
+
+  <div class="hub">
+    <div class="hub-top">
+      <div class="eyebrow">Enterprise Entry Point</div>
+      <h1>Ask Company</h1>
+      <p>One orchestrator. Eight specialist patterns. One governance layer watching all of it in production.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-chip">👤 Internal — Teams — <b>zero-rated</b></div>
+      <div class="entry-chip">🌐 Public — Web widget — <b>metered</b></div>
+      <div class="entry-chip">🛡 GovernOps watching all 8 agents</div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <span class="tier-badge beg">P1 · BEGINNER</span>
+        <div class="name">Knowledge Agent</div>
+        <div class="body">Policy Q&A grounded on SharePoint, citations shown.</div>
+        <div class="cost">~2 cr / answer · zero-rated internally</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge beg">P2 · BEGINNER</span>
+        <div class="name">Public Web Agent</div>
+        <div class="body">Anonymous product Q&A on the public site.</div>
+        <div class="cost">~2 cr / answer · always metered</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge int">P3 · INTERMEDIATE</span>
+        <div class="name">Leave/Facilities Agent</div>
+        <div class="body">Power Automate actions + Adaptive Card approvals.</div>
+        <div class="cost">~7-12 cr / request</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge int">P4 · INTERMEDIATE</span>
+        <div class="name">Structured Data Agent</div>
+        <div class="body">Dataverse MCP + SharePoint, security-scoped.</div>
+        <div class="cost">~5-10 cr / query</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge adv">P5 · ADVANCED</span>
+        <div class="name">External API Agent</div>
+        <div class="body">Custom connector + self-hosted MCP server.</div>
+        <div class="cost">~5 cr / action</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge adv">P6 · ADVANCED</span>
+        <div class="name">Deal Desk Agent</div>
+        <div class="body">New Orchestrator, multi-step reasoning, guardrails.</div>
+        <div class="cost">~30 cr / complex turn</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge exp">P7 · EXPERT</span>
+        <div class="name">Sales Proposal Mesh</div>
+        <div class="body">Connected agents + A2A external interoperability.</div>
+        <div class="cost">~65-80 cr / proposal</div>
+      </div>
+      <div class="tile">
+        <span class="tier-badge exp">P8 · EXPERT</span>
+        <div class="name">GovernOps-Agent</div>
+        <div class="body">Watches every agent above for cost & risk.</div>
+        <div class="cost">Modest — its own budget line</div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric-card"><div class="num">78%</div><div class="lbl">Traffic that's cheap & zero-rated (internal Q&A)</div></div>
+      <div class="metric-card"><div class="num">22%</div><div class="lbl">Traffic that's metered (external / complex reasoning)</div></div>
+      <div class="metric-card"><div class="num">$1,840</div><div class="lbl">Current monthly Copilot Credit spend, whole mesh</div></div>
+      <div class="metric-card"><div class="num">0</div><div class="lbl">Unresolved governance risk flags</div></div>
+    </div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> a single entry point routes every kind of request to the right specialist agent from Projects 1-7, and Project 8's GovernOps-Agent watches cost and risk across the entire mesh — most traffic stays cheap and zero-rated by design, with cost concentrated deliberately in the smaller share of genuinely complex, multi-agent, or external-facing requests.
+  </div>
+
+</body>
+</html>
