@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DataLink-Agent — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --purple:#8764B8; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#8a6100;background:#FFF1D6;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+  .stage{display:flex;gap:24px;margin:0 24px 24px;flex-wrap:wrap;}
+
+  .chatpanel{flex:1.2;min-width:340px;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);display:flex;flex-direction:column;height:500px;}
+  .chat-head{background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;padding:10px 16px;font-size:13px;font-weight:700;}
+  .chat-body{flex:1;overflow-y:auto;padding:14px;background:#fafafa;}
+  .msg{max-width:88%;padding:9px 12px;border-radius:10px;font-size:12.5px;margin-bottom:10px;line-height:1.5;}
+  .msg.bot{background:#fff;border:1px solid var(--border);}
+  .msg.user{background:var(--g1);color:#fff;margin-left:auto;}
+  .tool-tag{font-size:9.5px;font-weight:700;text-transform:uppercase;color:var(--purple);display:block;margin-bottom:4px;}
+  table.mini{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px;}
+  table.mini th{text-align:left;padding:4px 6px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:10px;}
+  table.mini td{padding:4px 6px;border-bottom:1px solid #f1f0ef;}
+  .chip{font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;}
+  .chip.open{background:#FDE7E9;color:#A80000;}
+  .chip.closed{background:#DFF6DD;color:var(--success);}
+  .chat-input{border-top:1px solid var(--border);padding:9px 14px;font-size:12px;color:var(--text-secondary);}
+
+  .sidepanel{flex:1;min-width:280px;display:flex;flex-direction:column;gap:16px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .card h4{margin:0 0 8px;font-size:12.5px;}
+  .row{display:flex;justify-content:space-between;font-size:11.5px;padding:6px 0;border-bottom:1px solid #f2f1f0;}
+  .row:last-child{border-bottom:none;}
+  .sec-note{font-size:11px;color:var(--text-secondary);line-height:1.6;}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 4</span><span class="tier">🟡 INTERMEDIATE</span></div>
+  <div class="desc">DataLink-Agent — structured querying across Dataverse and SharePoint via the Dataverse MCP tool. Static reference showing cross-table reasoning and security-scoped results.</div>
+
+  <div class="stage">
+    <div class="chatpanel">
+      <div class="chat-head">Facilities Assistant — signed in as R. Shah (Building 3 technician)</div>
+      <div class="chat-body">
+        <div class="msg user">Which assets in Building 3 have open tickets older than 10 days?</div>
+        <div class="msg bot">
+          <span class="tool-tag">Dataverse MCP Tool · cross-table query</span>
+          Found 2 matching assets in your scope:
+          <table class="mini">
+            <tr><th>Asset</th><th>Ticket age</th><th>Status</th></tr>
+            <tr><td>Chiller-19</td><td>14 days</td><td><span class="chip open">Open</span></td></tr>
+            <tr><td>HVAC-Unit-12</td><td>11 days</td><td><span class="chip open">Open</span></td></tr>
+          </table>
+        </div>
+
+        <div class="msg user">Log a new facilities request — broken AC in Room 214</div>
+        <div class="msg bot">
+          <span class="tool-tag">SharePoint Action · confirm before write</span>
+          I'll create: Location "Room 214", Issue "Broken AC", Urgency "Medium" — confirm to submit?
+        </div>
+      </div>
+      <div class="chat-input">Type a message…</div>
+    </div>
+
+    <div class="sidepanel">
+      <div class="card">
+        <h4>Data sources</h4>
+        <div class="row"><span>Dataverse — Asset</span><span>MCP tool</span></div>
+        <div class="row"><span>Dataverse — MaintenanceTicket</span><span>MCP tool</span></div>
+        <div class="row"><span>SharePoint — Facilities Requests</span><span>List action</span></div>
+      </div>
+
+      <div class="card">
+        <h4>Security scope active</h4>
+        <div class="sec-note">Signed in as R. Shah — Dataverse security role restricts results to <b>Building 3</b> only. A different technician querying the same question would see a different, correctly-scoped result set — enforced at the data layer, not in the prompt.</div>
+      </div>
+
+      <div class="card">
+        <h4>Credit cost this session</h4>
+        <div class="row"><span>Cross-table MCP query</span><span>~5 cr</span></div>
+        <div class="row"><span>SharePoint write action</span><span>~5 cr</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> the cross-table question required the planner to reason across two Dataverse tables in one turn via the Dataverse MCP tool, and results are automatically restricted to what this specific user's security role permits — not filtered after the fact, but scoped at the query itself. The write action still waits for confirmation before touching SharePoint.
+  </div>
+
+</body>
+</html>
