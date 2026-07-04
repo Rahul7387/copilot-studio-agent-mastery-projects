@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GovernOps-Agent — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; --warn:#D83B01; --red:#A80000; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#a80000;background:#FDE7E9;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+
+  .dash{margin:0 24px 24px;background:#0B1B3A;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+  .dash-top{padding:16px 22px;color:#fff;display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#0F6CBD,#3d2a8a);}
+  .dash-top .title{font-weight:700;font-size:14px;}
+  .dash-top .sub{font-size:11px;color:#cfe0ff;}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:18px 22px;background:#0e2249;}
+  .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:12px 14px;color:#dbe4fb;}
+  .stat .n{font-size:19px;font-weight:800;}
+  .stat .n.ok{color:#7fd88f;} .stat .n.warn{color:#ffd166;} .stat .n.bad{color:#ff8686;}
+  .stat .l{font-size:10.5px;color:#9db6f0;margin-top:2px;}
+
+  .table-wrap{background:#fff;padding:16px 22px 20px;}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  th{text-align:left;padding:7px 8px;color:var(--text-secondary);font-size:10.5px;text-transform:uppercase;border-bottom:2px solid var(--border);}
+  td{padding:8px;border-bottom:1px solid #f1f0ef;}
+  .bar-track{width:80px;height:6px;background:#eee;border-radius:3px;display:inline-block;overflow:hidden;vertical-align:middle;margin-right:6px;}
+  .bar-fill{height:100%;}
+  .status-chip{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:8px;}
+  .status-chip.ok{background:#DFF6DD;color:var(--success);}
+  .status-chip.warn{background:#FFF1D6;color:#8a6100;}
+  .status-chip.shadow{background:#FDE7E9;color:var(--red);}
+
+  .chat-strip{margin:0 24px 24px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .chat-strip .q{font-size:12px;font-weight:700;margin-bottom:6px;}
+  .chat-strip .a{font-size:12px;color:var(--text-secondary);line-height:1.6;}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 8</span><span class="tier">🔴 EXPERT</span></div>
+  <div class="desc">GovernOps-Agent — an agent that governs other agents: credit monitoring, shadow-agent detection, and threshold enforcement. Static reference only.</div>
+
+  <div class="dash">
+    <div class="dash-top"><div><div class="title">GovernOps — Tenant Agent Command Center</div><div class="sub">Environment: Production · 14 agents tracked</div></div></div>
+    <div class="cards">
+      <div class="stat"><div class="n ok">$1,840</div><div class="l">Credit spend this month</div></div>
+      <div class="stat"><div class="n warn">2</div><div class="l">Agents over 80% of cap</div></div>
+      <div class="stat"><div class="n bad">1</div><div class="l">Shadow agent detected</div></div>
+      <div class="stat"><div class="n ok">0</div><div class="l">Risk flags — real-time governance agent</div></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Agent</th><th>Owner</th><th>Monthly cap usage</th><th>Status</th></tr>
+        <tr>
+          <td>WebGround-Agent (Project 2)</td><td>Marketing</td>
+          <td><span class="bar-track"><span class="bar-fill" style="width:92%;background:#D83B01"></span></span>92%</td>
+          <td><span class="status-chip warn">Near cap</span></td>
+        </tr>
+        <tr>
+          <td>FlowConnect-Agent (Project 3)</td><td>HR Ops</td>
+          <td><span class="bar-track"><span class="bar-fill" style="width:41%;background:#107C10"></span></span>41%</td>
+          <td><span class="status-chip ok">Healthy</span></td>
+        </tr>
+        <tr>
+          <td>Deal-Desk-Prod-v2</td><td>— unlisted —</td>
+          <td><span class="bar-track"><span class="bar-fill" style="width:60%;background:#A80000"></span></span>60%</td>
+          <td><span class="status-chip shadow">Shadow agent</span></td>
+        </tr>
+        <tr>
+          <td>MultiAgentMesh (Project 7)</td><td>Sales Ops</td>
+          <td><span class="bar-track"><span class="bar-fill" style="width:85%;background:#D83B01"></span></span>85%</td>
+          <td><span class="status-chip warn">Near cap</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="chat-strip">
+    <div class="q">🧑‍💼 "Which agents are over 80% of their monthly credit cap?"</div>
+    <div class="a">Two agents: <b>WebGround-Agent</b> (92%, Marketing) and <b>MultiAgentMesh</b> (85%, Sales Ops). I've also found one <b>shadow agent</b> — "Deal-Desk-Prod-v2" — running in Production with no registered owner. Want me to notify its likely owner based on recent conversation logs, or flag it for manual review?</div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> GovernOps-Agent answers real governance questions conversationally instead of requiring an admin-center portal login, cross-references live environments against the agent inventory to surface an unregistered "shadow agent," and would trigger an owner-notification flow before ever pausing anything automatically — consequential actions still get a human in the loop.
+  </div>
+
+</body>
+</html>
