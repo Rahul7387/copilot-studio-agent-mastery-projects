@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KB-Agent-101 — Copilot Studio Mockup</title>
+<style>
+  :root{ --g1:#0F6CBD; --g2:#8764B8; --g3:#D83B9A; --surface:#F3F2F1; --border:#E1DFDD; --text:#201F1E; --text-secondary:#605E5C; --success:#107C10; }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;background:var(--surface);color:var(--text);}
+  .badge-wrap{padding:20px 24px 0;display:flex;gap:8px;align-items:center;}
+  .badge{display:inline-block;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;}
+  .tier{font-size:11px;font-weight:800;color:#107C10;background:#DFF6DD;padding:3px 10px;border-radius:10px;}
+  .desc{font-size:12.5px;color:var(--text-secondary);padding:6px 24px 18px;max-width:900px;}
+  .stage{display:flex;gap:24px;margin:0 24px 24px;flex-wrap:wrap;}
+
+  .chatpanel{flex:1.3;min-width:340px;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);display:flex;flex-direction:column;height:480px;}
+  .chat-head{background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;padding:10px 16px;font-size:13px;font-weight:700;display:flex;gap:8px;align-items:center;}
+  .chat-head .dot{width:7px;height:7px;background:#28c76f;border-radius:50%;}
+  .chat-body{flex:1;overflow-y:auto;padding:14px;background:#fafafa;}
+  .msg{max-width:82%;padding:9px 12px;border-radius:10px;font-size:12.5px;margin-bottom:10px;line-height:1.5;}
+  .msg.bot{background:#fff;border:1px solid var(--border);}
+  .msg.user{background:var(--g1);color:#fff;margin-left:auto;}
+  .cite{font-size:10.5px;color:var(--text-secondary);margin-top:6px;border-top:1px solid #eee;padding-top:5px;display:flex;align-items:center;gap:5px;}
+  .cite .doc-icon{font-size:11px;}
+  .decline{background:#FFF4CE;border:1px solid #ecd98a;color:#5c4a00;padding:7px 9px;border-radius:6px;font-size:11.5px;margin-top:4px;}
+  .chat-input{border-top:1px solid var(--border);padding:9px 14px;font-size:12px;color:var(--text-secondary);}
+
+  .sidepanel{flex:1;min-width:300px;display:flex;flex-direction:column;gap:16px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+  .card h4{margin:0 0 8px;font-size:12.5px;}
+  .ks-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f2f1f0;font-size:11.5px;}
+  .ks-row:last-child{border-bottom:none;}
+  .ks-icon{width:24px;height:24px;border-radius:5px;background:#EFF6FC;color:var(--g1);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+  .activity{font-family:'Cascadia Code',Consolas,monospace;font-size:10.5px;background:#0B1B3A;color:#c9e0ff;padding:10px;border-radius:6px;line-height:1.7;}
+  .activity .k{color:#7fd88f;}
+  .activity .v{color:#ffd166;}
+  .credit-strip{display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin-top:4px;}
+  .credit-num{font-weight:800;color:var(--g1);}
+
+  .panel-caption{padding:6px 24px 26px;font-size:12px;color:var(--text-secondary);max-width:900px;line-height:1.6;}
+  .panel-caption strong{color:var(--text);}
+</style>
+</head>
+<body>
+
+  <div class="badge-wrap"><span class="badge">COPILOT STUDIO — PROJECT 1</span><span class="tier">🟢 BEGINNER</span></div>
+  <div class="desc">KB-Agent-101 — grounded HR policy Q&A. Static reference showing generative-answer citations, a graceful "I don't know," and the activity map / credit trace. Not a functional agent.</div>
+
+  <div class="stage">
+    <div class="chatpanel">
+      <div class="chat-head"><span class="dot"></span> HR Policy Agent</div>
+      <div class="chat-body">
+        <div class="msg user">How many casual leave days do I get per year?</div>
+        <div class="msg bot">
+          You're entitled to 12 casual leave days per calendar year, credited monthly at 1 day/month. Unused days can carry over up to a maximum of 5 into the next year.
+          <div class="cite"><span class="doc-icon">📄</span> HR Policies / Leave-Policy-2026.pdf, p.3</div>
+        </div>
+        <div class="msg user">What's our policy on cryptocurrency bonuses?</div>
+        <div class="msg bot">
+          I don't have information about that in the HR knowledge sources I'm grounded on, so I don't want to guess.
+          <div class="decline">💬 Would you like me to connect you with HR directly?</div>
+        </div>
+      </div>
+      <div class="chat-input">Type a message…</div>
+    </div>
+
+    <div class="sidepanel">
+      <div class="card">
+        <h4>Knowledge sources</h4>
+        <div class="ks-row"><div class="ks-icon">📁</div> SharePoint — HR Policies library</div>
+        <div class="ks-row"><div class="ks-icon">🗂</div> File collection — Benefits PDFs (5 files)</div>
+      </div>
+
+      <div class="card">
+        <h4>Activity map (last turn)</h4>
+        <div class="activity">
+          <div><span class="k">planner:</span> <span class="v">generative_answer</span></div>
+          <div><span class="k">source_selected:</span> <span class="v">SharePoint/HR Policies</span></div>
+          <div><span class="k">confidence:</span> <span class="v">high</span></div>
+          <div><span class="k">citation_shown:</span> <span class="v">true</span></div>
+        </div>
+        <div class="credit-strip"><span>Copilot Credits this turn</span><span class="credit-num">~2</span></div>
+      </div>
+
+      <div class="card">
+        <h4>Licensing status</h4>
+        <div style="font-size:11.5px;color:var(--text-secondary);line-height:1.6;">
+          M365 Copilot licensed users · Teams channel only<br>
+          <b style="color:var(--success);">✔ Zero-rated — $0 metered this month</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-caption">
+    <strong>What this shows:</strong> every generative answer carries a visible citation back to its source document — the mechanism that makes grounding trustworthy rather than hallucinated. The ungrounded question is correctly declined instead of guessed. Because usage stays inside Teams with licensed users, this entire project runs at zero metered cost.
+  </div>
+
+</body>
+</html>
